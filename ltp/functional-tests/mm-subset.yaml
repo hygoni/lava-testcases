@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: mm-subset
+  description: "Run a subset of LTP MM tests"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - /opt/ltp/runltp -Q -q -f mm_subset

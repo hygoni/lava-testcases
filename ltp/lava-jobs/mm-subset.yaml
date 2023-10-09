@@ -1,0 +1,58 @@
+# Your first LAVA JOB definition for an x86_64 QEMU
+device_type: qemu
+job_name: QEMU pipeline, first job
+
+timeouts:
+  job:
+    minutes: 15
+  action:
+    minutes: 5
+  connection:
+    minutes: 5
+priority: medium
+visibility: public
+
+# context allows specific values to be overridden or included
+context:
+  # tell the qemu template which architecture is being tested
+  # the template uses that to ensure that qemu-system-x86_64 is executed.
+  arch: amd64
+
+metadata:
+  # please change these fields when modifying this job for your own tests.
+  docs-source: first-job
+  docs-filename: qemu-pipeline-first-job.yaml
+
+# ACTION_BLOCK
+actions:
+# DEPLOY_BLOCK
+- deploy:
+    timeout:
+      minutes: 5
+    to: tmpfs
+    images:
+      rootfs:
+        image_arg: -drive format=qcow2,file={rootfs}
+        url: file:///shared.slow/images/debian-11.qcow2
+
+# BOOT_BLOCK
+- boot:
+    timeout:
+      minutes: 5
+    method: qemu
+    media: tmpfs
+    prompts: ["root@debian:"]
+    auto_login:
+      login_prompt: "debian login:"
+      username: root
+
+# TEST_BLOCK
+- test:
+    timeout:
+      minutes: 15
+    definitions:
+    - repository: http://git.kerneltesting.org/lava-testcases
+      from: git
+      path: ltp/tests/mm-subset.yaml
+      name: mm-subset
+      shallow: False
