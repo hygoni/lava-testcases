@@ -35,7 +35,7 @@ actions:
     to: tmpfs
     images:
       rootfs:
-        image_arg: -drive format=qcow2,file={rootfs}
+        image_arg: -blockdev driver=qcow2,file.filename={rootfs},file.driver=file,node-name=blk1 -device virtio-blk,drive=blk1
         url: file:///shared.slow/images/debian-11.qcow2
       kernel:
         image_arg: -kernel {kernel} -append 'root=/dev/sda1 console=ttyS0'
