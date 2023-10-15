@@ -36,7 +36,7 @@ actions:
         url: file:///shared.slow/images/debian-11.qcow2
       kernel:
         image_arg: -kernel {kernel} -append 'root=/dev/sda1 console=ttyS0'
-        url: file:///shared.slow/builds/bzImage
+        url: file://KERNEL
 
 # BOOT_BLOCK
 - boot:
