@@ -15,7 +15,7 @@ do
 	echo Submitting $job...
 	sed "s/KERNEL/${KERNEL//\//\\/}/g" $job > _submit.yaml
 	lavacli \
-	--uri http://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
+	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
 	rm _submit.yaml
 done
 
