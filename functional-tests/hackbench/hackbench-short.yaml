@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: hackbench-short
+  description: "Run hackbench for a while"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - hackbench -g 2 -l 10000

@@ -34,6 +34,8 @@ actions:
       rootfs:
         image_arg: -drive format=qcow2,file={rootfs}
         url: file:///shared.slow/images/debian-11.qcow2
+      kernel:
+        url: file:///shared.slow/builds/bzImage
 
 # BOOT_BLOCK
 - boot:
@@ -53,6 +55,11 @@ actions:
     definitions:
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
-      path: ltp/tests/mm-subset.yaml
+      path: functional-tests/ltp/mm-subset.yaml
       name: mm-subset
+      shallow: False
+    - repository: http://git.kerneltesting.org/lava-testcases
+      from: git
+      path: functional-tests/hackbench/hackbench-short.yaml
+      name: hackbench-short
       shallow: False
