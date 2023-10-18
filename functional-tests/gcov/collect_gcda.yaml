@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: collect-gcda
+  description: "Collect GCDA files for code coverage data. If not configured, just skip."
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - /bin/coverage.sh

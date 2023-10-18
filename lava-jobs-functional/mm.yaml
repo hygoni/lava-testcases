@@ -67,3 +67,8 @@ actions:
       path: functional-tests/hackbench/hackbench-short.yaml
       name: hackbench-short
       shallow: False
+    - repository: http://git.kerneltesting.org/lava-testcases
+      from: git
+      path: functional-tests/gcov/collect_gcda.yaml
+      name: collect-gcda
+      shallow: False
