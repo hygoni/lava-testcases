@@ -7,4 +7,5 @@ metadata:
 
 run:
   steps:
+    - echo $JENKINS_PROJECT_NAME-$JENKINS_BUILD_ID
     - /bin/coverage.sh

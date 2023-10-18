@@ -72,3 +72,6 @@ actions:
       path: functional-tests/gcov/collect_gcda.yaml
       name: collect-gcda
       shallow: False
+      params:
+        JENKINS_PROJECT_NAME: JENKINS_PROJECT_NAME_VALUE
+        JENKINS_BUILD_ID: JENKINS_BUILD_ID_VALUE
