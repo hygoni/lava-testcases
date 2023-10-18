@@ -4,11 +4,11 @@ job_name: lightweight tests for mm and slab
 
 timeouts:
   job:
-    minutes: 360
+    minutes: 300
   action:
-    minutes: 15
+    minutes: 30
   connection:
-    minutes: 15
+    minutes: 30
 priority: medium
 visibility: public
 
@@ -44,7 +44,7 @@ actions:
 # BOOT_BLOCK
 - boot:
     timeout:
-      minutes: 360
+      minutes: 60
     method: qemu
     media: tmpfs
     prompts: ["root@debian:"]
@@ -55,7 +55,7 @@ actions:
 # TEST_BLOCK
 - test:
     timeout:
-      minutes: 600
+      minutes: 120
     definitions:
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
