@@ -1,0 +1,12 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: gcov
+  description: "Collect GCOV files for code coverage data. If not configured, just skip."
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - /bin/name.sh $JENKINS_PROJECT_NAME-$JENKINS_BUILD_ID
+    - /usr/bin/wget -O /$GCOV_FILE_NAME https://download.kerneltesting.org/gcov/$JENKINS_PROJECT_NAME-$JENKINS_BUILD_ID/$GCOV_FILE_NAME
+    - /bin/coverage.sh $GCOV_FILE_NAME

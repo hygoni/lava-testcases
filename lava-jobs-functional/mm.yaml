@@ -69,9 +69,10 @@ actions:
       shallow: False
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
-      path: functional-tests/gcov/collect_gcda.yaml
-      name: collect-gcda
+      path: functional-tests/gcov/gcov.yaml
+      name: gcov
       shallow: False
       params:
         JENKINS_PROJECT_NAME: JENKINS_PROJECT_NAME_VALUE
         JENKINS_BUILD_ID: JENKINS_BUILD_ID_VALUE
+        GCOV_FILE_NAME: GCOV_FILE_NAME_VALUE
