@@ -7,6 +7,6 @@ metadata:
 
 run:
   steps:
-    - /bin/name.sh $JENKINS_PROJECT_NAME-$JENKINS_BUILD_ID
-    - /usr/bin/wget -O /$GCOV_FILE_NAME https://download.kerneltesting.org/gcov/$JENKINS_PROJECT_NAME-$JENKINS_BUILD_ID/$GCOV_FILE_NAME
+    - /bin/name.sh $TREE_NAME
+    - /usr/bin/wget -O /$GCOV_FILE_NAME https://download.kerneltesting.org/gcov/$TREE_NAME/$GCOV_FILE_NAME
     - /bin/coverage.sh $GCOV_FILE_NAME

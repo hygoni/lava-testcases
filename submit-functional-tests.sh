@@ -14,8 +14,7 @@ for job in $(ls ./lava-jobs-functional/*.yaml);
 do
 	echo Submitting $job...
 	sed "s/KERNEL/${KERNEL//\//\\/}/g" $job > _submit.yaml
-	sed -i "s/JENKINS_BUILD_ID_VALUE/\"$JENKINS_BUILD_ID\"/g" _submit.yaml
-	sed -i "s/JENKINS_PROJECT_NAME_VALUE/\"$JENKINS_PROJECT_NAME\"/g" _submit.yaml
+	sed -i "s/TREE_NAME_VALUE/\"$TREE_NAME\"/g" _submit.yaml
 	sed -i "s/GCOV_FILE_NAME_VALUE/\"$GCOV_FILE_NAME\"/g" _submit.yaml
 	lavacli \
 	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
