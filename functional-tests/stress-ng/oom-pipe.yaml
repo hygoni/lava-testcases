@@ -7,4 +7,4 @@ metadata:
 
 run:
   steps:
-    - stress-ng --oom-pipe 3 --pathological --timeout 60
+    - stress-ng --oom-pipe 1 --pathological --timeout 60
