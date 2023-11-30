@@ -8,5 +8,4 @@ metadata:
 run:
   steps:
     - /bin/name.sh $TREE_NAME
-    - /usr/bin/wget -O /$GCOV_FILE_NAME https://download.kerneltesting.org/gcov/$TREE_NAME/$GCOV_FILE_NAME
-    - /bin/coverage.sh $GCOV_FILE_NAME
+    - /bin/coverage.sh $TREE_NAME $GCOV_FILE_NAME
