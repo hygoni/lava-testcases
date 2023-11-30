@@ -59,11 +59,6 @@ actions:
     definitions:
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
-      path: functional-tests/ltp/mm-subset.yaml
-      name: mm-subset
-      shallow: False
-    - repository: http://git.kerneltesting.org/lava-testcases
-      from: git
       path: functional-tests/stress-ng/bigheap.yaml
       name: stress-ng-bigheap
       shallow: False
@@ -71,6 +66,11 @@ actions:
       from: git
       path: functional-tests/stress-ng/oom-pipe.yaml
       name: stress-ng-oom-pipe
+      shallow: False
+    - repository: http://git.kerneltesting.org/lava-testcases
+      from: git
+      path: functional-tests/ltp/mm-subset.yaml
+      name: mm-subset
       shallow: False
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
