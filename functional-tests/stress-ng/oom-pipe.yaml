@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: stress-ng-oom-pipe
+  description: "Run stress-ng --oom-pipe for a while"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - stress-ng --oom-pipe 3 --pathological --timeout 60
