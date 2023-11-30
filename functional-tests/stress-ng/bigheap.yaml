@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: stress-ng-bigheap
+  description: "Run stress-ng --bigheap for a while"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - stress-ng --bigheap 2 --timeout 60

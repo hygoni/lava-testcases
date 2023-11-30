@@ -64,6 +64,11 @@ actions:
       shallow: False
     - repository: http://git.kerneltesting.org/lava-testcases
       from: git
+      path: functional-tests/stress-ng/bigheap.yaml
+      name: stress-ng-bigheap
+      shallow: False
+    - repository: http://git.kerneltesting.org/lava-testcases
+      from: git
       path: functional-tests/hackbench/hackbench-short.yaml
       name: hackbench-short
       shallow: False
