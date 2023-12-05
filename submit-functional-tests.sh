@@ -17,7 +17,8 @@ do
 	sed -i "s/TREE_NAME_VALUE/\"$TREE_NAME\"/g" _submit.yaml
 	sed -i "s/GCOV_FILE_NAME_VALUE/\"$GCOV_FILE_NAME\"/g" _submit.yaml
 	lavacli \
-	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
+	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml \
+	--timeout 1200
 	rm _submit.yaml
 done
 
