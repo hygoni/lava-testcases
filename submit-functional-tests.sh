@@ -16,9 +16,13 @@ do
 	sed "s/KERNEL/${KERNEL//\//\\/}/g" $job > _submit.yaml
 	sed -i "s/TREE_NAME_VALUE/\"$TREE_NAME\"/g" _submit.yaml
 	sed -i "s/GCOV_FILE_NAME_VALUE/\"$GCOV_FILE_NAME\"/g" _submit.yaml
+
+	# For timeout
+	mkdir -p ~/.config
+	cp /shared.fast/configs/lavacli.yaml ~/.config
+
 	lavacli \
-	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml \
-	--timeout 1200
+	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
 	rm _submit.yaml
 done
 
