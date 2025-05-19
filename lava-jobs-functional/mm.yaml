@@ -66,11 +66,6 @@ actions:
       shallow: False
     - repository: http://github.com/hygoni/lava-testcases
       from: git
-      path: functional-tests/ltp/mm-subset.yaml
-      name: mm-subset
-      shallow: False
-    - repository: http://github.com/hygoni/lava-testcases
-      from: git
       path: functional-tests/hackbench/hackbench-short.yaml
       name: hackbench-short
       shallow: False
