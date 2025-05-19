@@ -7,6 +7,7 @@ metadata:
 
 run:
   steps:
+    - dhclient
     - wget http://download.kerneltesting.org/builds/$BUILD_ID/mm-selftests.tar.gz
     - tar -xzf mm-selftests.tar.gz
-    - ls tools/testing/selftests/mm
+    - cd tools/testing/selftests/mm
