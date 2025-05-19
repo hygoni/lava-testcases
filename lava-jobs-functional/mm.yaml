@@ -47,10 +47,12 @@ actions:
       minutes: 60
     method: qemu
     media: tmpfs
-    prompts: ["root@debian:"]
+    prompts: ["root@localhost:"]
     auto_login:
-      login_prompt: "debian login:"
+      login_prompt: "localhost login:"
       username: root
+      password_prompt: "Password:"
+      password: root
 
 # TEST_BLOCK
 - test:
