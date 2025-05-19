@@ -15,7 +15,7 @@ do
 	hash=$(sha1sum _submit.yaml | cut -c 1-6)
 	scp ./_submit.yaml hyeyoo@$LAVA_IP:/tmp/job-$hash.yaml
 	ssh hyeyoo@$LAVA_IP "lavacli \
-	--uri https://hyeyoo:$LAVA_TOKEN@localhost/RPC2/ jobs submit /tmp/job-$hash.yaml"
+	--uri http://hyeyoo:$LAVA_TOKEN@localhost/RPC2/ jobs submit /tmp/job-$hash.yaml"
 	ssh hyeyoo@$LAVA_IP "rm /tmp/job-$hash.yaml"
 
 	rm _submit.yaml
