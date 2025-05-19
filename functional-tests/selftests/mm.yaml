@@ -9,7 +9,8 @@ run:
   steps:
     - set -e
     - dhclient
+    - lava-test-case tc-false-1 --shell false
+    - lava-test-case tc-true-1 --shell true
     - wget http://download.kerneltesting.org/builds/$BUILD_ID/mm-selftests.tar.gz
     - tar -xzf mm-selftests.tar.gz
     - cd tools/testing/selftests/mm
-    - lava-test-case tc-false --shell false
