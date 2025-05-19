@@ -1,0 +1,12 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: mm-selftests
+  description: "Linux kernel MM selftests (tools/testing/selftests/mm)"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - wget http://download.kerneltesting.org/builds/$BUILD_ID/mm-selftests.tar.gz
+    - tar -xzf mm-selftests.tar.gz
+    - ls tools/testing/selftests/mm

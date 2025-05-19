@@ -61,6 +61,11 @@ actions:
     definitions:
     - repository: http://github.com/hygoni/lava-testcases
       from: git
+      path: functional-tests/selftests/mm.yaml
+      name: mm-selftests
+      shallow: False
+    - repository: http://github.com/hygoni/lava-testcases
+      from: git
       path: functional-tests/stress-ng/bigheap.yaml
       name: stress-ng-bigheap
       shallow: False
