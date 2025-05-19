@@ -57,28 +57,18 @@ actions:
     timeout:
       minutes: 120
     definitions:
-    - repository: http://git.kerneltesting.org/lava-testcases
+    - repository: http://github.com/hygoni/lava-testcases
       from: git
       path: functional-tests/stress-ng/bigheap.yaml
       name: stress-ng-bigheap
       shallow: False
-    - repository: http://git.kerneltesting.org/lava-testcases
+    - repository: http://github.com/hygoni/lava-testcases
       from: git
       path: functional-tests/ltp/mm-subset.yaml
       name: mm-subset
       shallow: False
-    - repository: http://git.kerneltesting.org/lava-testcases
+    - repository: http://github.com/hygoni/lava-testcases
       from: git
       path: functional-tests/hackbench/hackbench-short.yaml
       name: hackbench-short
       shallow: False
-    - repository: http://git.kerneltesting.org/lava-testcases
-      from: git
-      path: functional-tests/gcov/gcov.yaml
-      name: gcov
-      shallow: False
-      params:
-        JENKINS_PROJECT_NAME: JENKINS_PROJECT_NAME_VALUE
-        JENKINS_BUILD_ID: JENKINS_BUILD_ID_VALUE
-        GCOV_FILE_NAME: GCOV_FILE_NAME_VALUE
-        TREE_NAME: TREE_NAME_VALUE

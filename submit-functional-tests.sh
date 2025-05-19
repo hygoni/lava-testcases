@@ -1,9 +1,5 @@
 #!/bin/bash
 
-# Get environment variables
-TOKEN=$(cat ./env/jenkins.token)
-HOST=$(cat ./env/jenkins.host)
-
 if [ -z "$KERNEL" ]; then
 	echo No '$KERNEL' variable set
 	exit 1
@@ -15,14 +11,13 @@ do
 	echo Submitting $job...
 	sed "s/KERNEL/${KERNEL//\//\\/}/g" $job > _submit.yaml
 	sed -i "s/TREE_NAME_VALUE/\"$TREE_NAME\"/g" _submit.yaml
-	sed -i "s/GCOV_FILE_NAME_VALUE/\"$GCOV_FILE_NAME\"/g" _submit.yaml
 
-	# For timeout
-	mkdir -p ~/.config
-	cp /shared.fast/configs/lavacli.yaml ~/.config
+	hash=$(sha1sum _submit.yaml | cut -c 1-6)
+	scp ./_submit.yaml hyeyoo@$LAVA_IP:/tmp/job-$hash.yaml
+	ssh hyeyoo@$LAVA_IP "lavacli \
+	--uri https://hyeyoo:$LAVA_TOKEN@localhost/RPC2/ jobs submit /tmp/job-$hash.yaml"
+	ssh hyeyoo@$LAVA_IP "rm /tmp/job-$hash.yaml"
 
-	lavacli \
-	--uri https://hyeyoo:$TOKEN@$HOST/RPC2/ jobs submit _submit.yaml
 	rm _submit.yaml
 done
 
