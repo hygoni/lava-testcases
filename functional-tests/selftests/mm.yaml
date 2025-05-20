@@ -11,3 +11,10 @@ run:
     - wget http://download.kerneltesting.org/builds/$BUILD_ID/mm-selftests.tar.gz
     - tar -xzf mm-selftests.tar.gz
     - cd tools/testing/selftests/mm
+    - ls
+    - whoami
+    - lava-test-case mm-selftests-vma-merge --shell ./merge
+    - lava-test-case mm-selftests-mremap --shell ./mremap_test
+    - lava-test-case mm-selftests-migration --shell ./migration
+    - lava-test-case mm-selftests-cow --shell sudo ./cow # sudo for THP
+    - lava-test-case mm-selftests-ksm --shell sudo ./ksm_functional_tests # sudo for KSM
