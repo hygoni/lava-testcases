@@ -13,29 +13,30 @@ run:
     - cd tools/testing/selftests/mm
     - ls
     - export LD_LIBRARY_PATH=/opt/glibc-2.38/lib
-    - lava-test-case mm-vma_merge --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t vma_merge
-    - lava-test-case mm-mremap --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t mremap
-    - lava-test-case mm-migration --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t migration
-    - lava-test-case mm-madv_populate --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t madv_populate
-    - lava-test-case mm-madv_guard --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t madv_guard
-    - lava-test-case mm-cow --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t cow
-    - lava-test-case mm-ksm --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t ksm
-    - lava-test-case mm-mmap --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t mmap
-    - lava-test-case mm-gup_test --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t gup_test
-    - lava-test-case mm-userfaultfd --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t userfaultfd
-    - lava-test-case mm-compaction --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t compaction
-    - lava-test-case mm-mlock --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t mlock
-    - lava-test-case mm-hugevm --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t hugevm
-    - lava-test-case mm-vmalloc --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t vmalloc
-    - lava-test-case mm-hmm --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t hmm
-    - lava-test-case mm-memfd_secret --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t memfd_secret
-    - lava-test-case mm-process_mrelease --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t process_mrelease
-    - lava-test-case mm-pkey --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t pkey
-    - lava-test-case mm-soft_dirty --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t soft_dirty
-    - lava-test-case mm-pagemap --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t pagemap
-    - lava-test-case mm-pfnmap --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t pfnmap
-    - lava-test-case mm-thp --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t thp
-    - lava-test-case mm-mkdirty --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t mkdirty
-    - lava-test-case mm-mdwe --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t mdwe
-    - lava-test-case mm-page_frag --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t page_frag
-    # - lava-test-case mm-hugetlb --shell sudo LD_LIBRARY_PATH=$LD_LIBRARY_PATH ./run_vmtests.sh -t hugetlb
+      echo $LD_LIBRARY_PATH
+    - lava-test-case mm-vma_merge --shell sudo ./run_vmtests.sh -t vma_merge
+    - lava-test-case mm-mremap --shell sudo ./run_vmtests.sh -t mremap
+    - lava-test-case mm-migration --shell sudo ./run_vmtests.sh -t migration
+    - lava-test-case mm-madv_populate --shell sudo ./run_vmtests.sh -t madv_populate
+    - lava-test-case mm-madv_guard --shell sudo ./run_vmtests.sh -t madv_guard
+    - lava-test-case mm-cow --shell sudo ./run_vmtests.sh -t cow
+    - lava-test-case mm-ksm --shell sudo ./run_vmtests.sh -t ksm
+    - lava-test-case mm-mmap --shell sudo ./run_vmtests.sh -t mmap
+    - lava-test-case mm-gup_test --shell sudo ./run_vmtests.sh -t gup_test
+    - lava-test-case mm-userfaultfd --shell sudo ./run_vmtests.sh -t userfaultfd
+    - lava-test-case mm-compaction --shell sudo ./run_vmtests.sh -t compaction
+    - lava-test-case mm-mlock --shell sudo ./run_vmtests.sh -t mlock
+    - lava-test-case mm-hugevm --shell sudo ./run_vmtests.sh -t hugevm
+    - lava-test-case mm-vmalloc --shell sudo ./run_vmtests.sh -t vmalloc
+    - lava-test-case mm-hmm --shell sudo ./run_vmtests.sh -t hmm
+    - lava-test-case mm-memfd_secret --shell sudo ./run_vmtests.sh -t memfd_secret
+    - lava-test-case mm-process_mrelease --shell sudo ./run_vmtests.sh -t process_mrelease
+    - lava-test-case mm-pkey --shell sudo ./run_vmtests.sh -t pkey
+    - lava-test-case mm-soft_dirty --shell sudo ./run_vmtests.sh -t soft_dirty
+    - lava-test-case mm-pagemap --shell sudo ./run_vmtests.sh -t pagemap
+    - lava-test-case mm-pfnmap --shell sudo ./run_vmtests.sh -t pfnmap
+    - lava-test-case mm-thp --shell sudo ./run_vmtests.sh -t thp
+    - lava-test-case mm-mkdirty --shell sudo ./run_vmtests.sh -t mkdirty
+    - lava-test-case mm-mdwe --shell sudo ./run_vmtests.sh -t mdwe
+    - lava-test-case mm-page_frag --shell sudo ./run_vmtests.sh -t page_frag
+    # - lava-test-case mm-hugetlb --shell sudo ./run_vmtests.sh -t hugetlb
