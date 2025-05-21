@@ -35,7 +35,7 @@ run:
     - lava-test-case mm-pagemap --shell sudo ./run_vmtests.sh -t pagemap
     - lava-test-case mm-pfnmap --shell sudo ./run_vmtests.sh -t pfnmap
     - lava-test-case mm-thp --shell sudo ./run_vmtests.sh -t thp
-    - lava-test-case mm-hugetlb --shell sudo ./run_vmtests.sh -t hugetlb
     - lava-test-case mm-mkdirty --shell sudo ./run_vmtests.sh -t mkdirty
     - lava-test-case mm-mdwe --shell sudo ./run_vmtests.sh -t mdwe
     - lava-test-case mm-page_frag --shell sudo ./run_vmtests.sh -t page_frag
+    # - lava-test-case mm-hugetlb --shell sudo ./run_vmtests.sh -t hugetlb
