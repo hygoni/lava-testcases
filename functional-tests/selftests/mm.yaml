@@ -12,7 +12,8 @@ run:
     - tar -xzf mm-selftests.tar.gz
     - cd tools/testing/selftests/mm
     - ls
-    - whoami
+    - export LD_LIBRARY_PATH=/opt/glibc-2.38/lib
+      echo $LD_LIBRARY_PATH
     - lava-test-case mm-vma_merge --shell sudo ./run_vmtests.sh -t vma_merge
     - lava-test-case mm-mremap --shell sudo ./run_vmtests.sh -t mremap
     - lava-test-case mm-migration --shell sudo ./run_vmtests.sh -t migration
