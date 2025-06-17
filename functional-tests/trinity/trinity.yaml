@@ -7,4 +7,4 @@ metadata:
 
 run:
   steps:
-    - timeout 10m trinity --dropprivs
+    - timeout 10m trinity -q --dropprivs
