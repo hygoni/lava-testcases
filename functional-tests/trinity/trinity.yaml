@@ -1,0 +1,10 @@
+metadata:
+  format: LAVA test definition 1.0
+  name: trinity
+  description: "Run trinity"
+  maintainer:
+    - 42.hyeyoo@gmail.com
+
+run:
+  steps:
+    - timeout 10m trinity --dropprivs
