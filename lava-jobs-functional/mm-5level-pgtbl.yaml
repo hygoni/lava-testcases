@@ -17,10 +17,10 @@ context:
   # tell the qemu template which architecture is being tested
   # the template uses that to ensure that qemu-system-x86_64 is executed.
   arch: amd64
-  cpu: qemu64,+la57
   extra_options:
-  - -smp
-  - 4
+  - -smp 4
+  - -cpu qemu64,+la57
+  no_kvm: true
 
 metadata:
   # please change these fields when modifying this job for your own tests.
