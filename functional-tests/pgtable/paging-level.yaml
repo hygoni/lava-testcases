@@ -7,4 +7,4 @@ metadata:
 
 run:
   steps:
-    - [ "$(uname -m)" != "x86_64" ] && echo "32-bit system" && exit; grep -qw la57 /proc/cpuinfo && echo "CPU supports 5-level paging (kernel may be using it)" || echo "CPU uses 4-level paging"
+    - bash -c '[ "$(uname -m)" != "x86_64" ] && echo "32-bit system" && exit; grep -qw la57 /proc/cpuinfo && echo "CPU supports 5-level paging (kernel may be using it)" || echo "CPU uses 4-level paging"'
