@@ -1,0 +1,74 @@
+# Your first LAVA JOB definition for an x86_64 QEMU
+device_type: qemu
+job_name: lightweight tests for mm and slab
+
+timeouts:
+  job:
+    minutes: 300
+  action:
+    minutes: 30
+  connection:
+    minutes: 30
+priority: medium
+visibility: public
+
+# context allows specific values to be overridden or included
+context:
+  # tell the qemu template which architecture is being tested
+  # the template uses that to ensure that qemu-system-x86_64 is executed.
+  arch: amd64
+  cpu: qemu64,+la57
+  extra_options:
+  - -smp
+  - 4
+
+metadata:
+  # please change these fields when modifying this job for your own tests.
+  docs-source: mm
+  docs-filename: mm-5level-pgtbl.yaml
+
+# ACTION_BLOCK
+actions:
+# DEPLOY_BLOCK
+- deploy:
+    timeout:
+      minutes: 60
+    to: tmpfs
+    images:
+      rootfs:
+        image_arg: -blockdev driver=qcow2,file.filename={rootfs},file.driver=file,node-name=blk1 -device virtio-blk,drive=blk1
+        url: file:///shared.fast/images/ubuntu-24.04.qcow2
+      kernel:
+        image_arg: -kernel {kernel} -append 'root=/dev/vda1 rootwait console=ttyS0 nokaslr'
+        url: file://KERNEL
+
+# BOOT_BLOCK
+- boot:
+    timeout:
+      minutes: 60
+    method: qemu
+    media: tmpfs
+    prompts: ["root@ubuntu:"]
+    auto_login:
+      login_prompt: "ubuntu login:"
+      username: root
+      password_prompt: "Password:"
+      password: root
+
+# TEST_BLOCK
+- test:
+    timeout:
+      minutes: 120
+    definitions:
+    - repository: http://github.com/hygoni/lava-testcases
+      from: git
+      path: functional-tests/selftests/mm.yaml
+      name: mm-selftests
+      params:
+        BUILD_ID: BUILD_ID_VALUE
+      shallow: False
+    - repository: http://github.com/hygoni/lava-testcases
+      from: git
+      path: functional-tests/stress-ng/bigheap.yaml
+      name: stress-ng-bigheap
+      shallow: False
