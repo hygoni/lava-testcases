@@ -61,6 +61,11 @@ actions:
     definitions:
     - repository: http://github.com/hygoni/lava-testcases
       from: git
+      path: functional-tests/selftests/pgtable/paging-level.yaml
+      name: paging-level
+      shallow: False
+    - repository: http://github.com/hygoni/lava-testcases
+      from: git
       path: functional-tests/selftests/mm.yaml
       name: mm-selftests
       params:

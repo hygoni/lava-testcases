@@ -8,3 +8,4 @@ metadata:
 run:
   steps:
     - stress-ng --bigheap 2 --timeout 60
+    - stress-ng --bigheap 4 --oomable --timeout 600 # invoke OOM and exit
